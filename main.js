@@ -1,4 +1,4 @@
-import { publicKey, privateKey } from "./key";
+import { publicKey, privateKey } from "./key.js";
 
 const apiBaseURL = "https://gateway.marvel.com/v1/public";
 
@@ -17,6 +17,18 @@ function createURL(search) {
   return url;
 }
 
+function searchMarvelAPI(search) {
+  const url = createURL(search);
+  fetch(url)
+    .then((response) => response.json())
+    .then((body) => {
+      console.log(body.data.results);
+      const matchedCharacters = body.data.results;
+      const charactersWithImages = matchedCharacters.filter(withValidImages);
+    });
+}
+
+searchMarvelAPI("spider");
 // NOTE: Example characters with INVALID images: Spider-dok, Blue Marvel, Revanche, Unus
 const withValidImages = (character) =>
   character.thumbnail.path.includes("image_not_available") === false &&
