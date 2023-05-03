@@ -1,4 +1,5 @@
 import { publicKey, privateKey } from "./key.js";
+import { renderComics } from "./render.js";
 
 const apiBaseURL = "https://gateway.marvel.com/v1/public";
 
@@ -42,6 +43,7 @@ function searchMarvelAPI(search) {
       console.log(comicsWithPrices);
 
       //Render Function
+      renderComics(comicsWithPrices);
     });
 }
 searchMarvelAPI("spider");

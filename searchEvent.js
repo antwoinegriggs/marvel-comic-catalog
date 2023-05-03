@@ -1,4 +1,4 @@
-import { searchMarvelAPI } from "./marvelService.js";
+import { searchMarvelAPI } from "./main.js";
 const DEFAULT_SEARCH_TERM = "a`";
 
 // Run a search once on page load (before the user gets a chance to enter a new search term),
