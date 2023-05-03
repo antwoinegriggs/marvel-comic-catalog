@@ -44,5 +44,5 @@ function searchMarvelAPI(search) {
       //Render Function
     });
 }
-
+searchMarvelAPI("spider");
 export { searchMarvelAPI };
