@@ -39,9 +39,10 @@ function searchMarvelAPI(search) {
       const comicsWithImages = matchedComics.filter(withValidImages);
       //   console.log(body.data.results[0].prices[0]);
       const comicsWithPrices = comicsWithImages.filter(withValidPrices);
-      //   console.log(comicsWithPrices);
+      console.log(comicsWithPrices);
+
+      //Render Function
     });
 }
 
-searchMarvelAPI("spider");
 export { searchMarvelAPI };
