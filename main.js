@@ -46,5 +46,5 @@ function searchMarvelAPI(search) {
       renderComics(comicsWithPrices);
     });
 }
-searchMarvelAPI("spider");
+
 export { searchMarvelAPI };
