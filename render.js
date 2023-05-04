@@ -28,9 +28,10 @@ function toComicCard(comic) {
   comicCard.append(comicTitleName(comic));
 
   // Append the price to the comic card div element
-  const price = document.createElement("p");
-  price.textContent = `$${comic.prices[0].price}`;
-  comicCard.append(price);
+  const comicPrice = document.createElement("p");
+  comicPrice.classList.add("comic-price");
+  comicPrice.textContent = `$${comic.prices[0].price}`;
+  comicCard.append(comicPrice);
 
   // Return the newly created comic card element
   return comicCard;
@@ -40,6 +41,7 @@ function toComicCard(comic) {
 function comicTitleName(comic) {
   // Create a new link element with alt text and a target
   const link = document.createElement("a");
+  link.classList.add("comic-link");
   link.alt = comic.name + " on Marvel.com";
   link.target = "_blank";
 
