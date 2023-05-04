@@ -27,6 +27,11 @@ function toComicCard(comic) {
   comicCard.append(comicImg);
   comicCard.append(comicTitleName(comic));
 
+  // Append the price to the comic card div element
+  const price = document.createElement("p");
+  price.textContent = `$${comic.prices[0].price}`;
+  comicCard.append(price);
+
   // Return the newly created comic card element
   return comicCard;
 }
