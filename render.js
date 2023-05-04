@@ -1,4 +1,7 @@
-const comicsContainer = document.querySelector("#comic-container");
+const catalogContainer = document.querySelector("#catalog-container");
+const comicGallery = document.createElement("div");
+comicGallery.classList.add("comic-gallery");
+catalogContainer.append(comicGallery);
 
 // Renders an array of comics as a list of comic cards in the DOM
 function renderComics(comics) {
@@ -6,7 +9,7 @@ function renderComics(comics) {
   const comicCards = comics.map(toComicCard);
 
   // Replace the contents of the comicsContainer element with the array of comic card elements
-  comicsContainer.replaceChildren(...comicCards);
+  comicGallery.replaceChildren(...comicCards);
   // Note: replaceChildren() is our alternative to append() when we want to replace the contents of the parent element, instead of adding new elements
 }
 
@@ -33,9 +36,37 @@ function toComicCard(comic) {
   comicPrice.textContent = `$${comic.prices[0].price}`;
   comicCard.append(comicPrice);
 
+  // Create a div element to hold the cart options
+  const comicCartSettings = document.createElement("div");
+  comicCartSettings.classList.add("comic-cart-settings");
+
+  // Append the cart options div to the comic card div
+  comicCard.append(comicCartSettings);
+
+  // Create a subtract button and append it to the cart options div
+  const subtractButton = document.createElement("button");
+  subtractButton.classList.add("subtract-btn");
+  comicCartSettings.append(subtractButton);
+
+  // Create a paragraph element to display the cart quantity and append it to the cart options div
+  const cartQuantity = document.createElement("p");
+  comicCartSettings.append(cartQuantity);
+
+  // Create an add button and append it to the cart options div
+  const addBtn = document.createElement("button");
+  addBtn.classList.add("add-btn");
+  comicCartSettings.append(addBtn);
+
+  // Create a button to add the comic to the cart and append it to the cart options div
+  const toCartBtn = document.createElement("button");
+  toCartBtn.classList.add("to-cart-btn");
+  comicCartSettings.append(toCartBtn);
+
   // Return the newly created comic card element
   return comicCard;
 }
+
+//
 
 // Returns a new link element that displays the comic title and links to its page on Marvel.com
 function comicTitleName(comic) {
