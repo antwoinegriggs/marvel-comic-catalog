@@ -54,7 +54,7 @@ function comicTitleName(comic) {
   secondLineElement.classList.add("name-second-line");
 
   // Split the comic title into two parts, the first line and the second line (if present)
-  const [firstLine, secondLine] = comic.title.split(" ");
+  const [firstLine, secondLine] = comic.title.split(" (");
 
   // Append the first line of the title to the first line div element
   firstLineElement.append(firstLine);
