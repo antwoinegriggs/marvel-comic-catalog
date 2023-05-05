@@ -1,3 +1,7 @@
+import { toCart } from "./toCartEvent.js";
+import { comicTitleName } from "./titleNameFunc.js";
+
+// Global Variables
 const catalogContainer = document.querySelector("#catalog-container");
 const comicGallery = document.createElement("div");
 comicGallery.classList.add("comic-gallery");
@@ -6,7 +10,7 @@ catalogContainer.append(comicGallery);
 // Renders an array of comics as a list of comic cards in the DOM
 function renderComics(comics) {
   // Map the array of comics to an array of comic card elements
-  const comicCards = comics.map(toComicCard);
+  const comicCards = comics.map((comic, index) => toComicCard(comic, index));
 
   // Replace the contents of the comicsContainer element with the array of comic card elements
   comicGallery.replaceChildren(...comicCards);
@@ -14,7 +18,7 @@ function renderComics(comics) {
 }
 
 // Creates a new comic card element from a given comic object and returns it
-function toComicCard(comic) {
+function toComicCard(comic, index) {
   // Construct the URL for the comic's thumbnail image using its path and extension
   const imgURL = `${comic.thumbnail.path}.${comic.thumbnail.extension}`;
 
@@ -33,80 +37,58 @@ function toComicCard(comic) {
   // Append the price to the comic card div element
   const comicPrice = document.createElement("p");
   comicPrice.classList.add("comic-price");
-  comicPrice.textContent = `$${comic.prices[0].price}`;
+  comicPrice.textContent = `${comic.prices[0].price}`;
   comicCard.append(comicPrice);
 
   // Create a div element to hold the cart options
   const comicCartSettings = document.createElement("div");
-  comicCartSettings.classList.add("comic-cart-settings");
-
-  // Append the cart options div to the comic card div
+  comicCartSettings.classList.add(`comic-cart-settings`);
   comicCard.append(comicCartSettings);
 
+  // Comic Quantity Counter
+  var comicCounter = 0;
+
   // Create a subtract button and append it to the cart options div
-  const subtractButton = document.createElement("button");
-  subtractButton.classList.add("subtract-btn");
-  comicCartSettings.append(subtractButton);
+  const subBtn = document.createElement("button");
+  subBtn.classList.add("subtract-btn");
+  subBtn.textContent = "-";
+  comicCartSettings.append(subBtn);
+  subBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    comicCounter -= 1;
+    cartQuantity.textContent = comicCounter;
+  });
 
   // Create a paragraph element to display the cart quantity and append it to the cart options div
   const cartQuantity = document.createElement("p");
+  cartQuantity.classList.add("cart-quantity");
   comicCartSettings.append(cartQuantity);
+  cartQuantity.textContent = comicCounter;
 
   // Create an add button and append it to the cart options div
   const addBtn = document.createElement("button");
   addBtn.classList.add("add-btn");
   comicCartSettings.append(addBtn);
+  addBtn.textContent = "+";
+  addBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    comicCounter += 1;
+    cartQuantity.textContent = comicCounter;
+  });
 
   // Create a button to add the comic to the cart and append it to the cart options div
   const toCartBtn = document.createElement("button");
-  toCartBtn.classList.add("to-cart-btn");
+  toCartBtn.classList.add(`to-cart-btn`);
+  toCartBtn.textContent = "Add to Cart";
+  toCartBtn.setAttribute("data-id", index);
   comicCartSettings.append(toCartBtn);
+  toCartBtn.addEventListener("click", (e) => {
+    e.preventDefault;
+    toCart(comic, comicCounter);
+  });
 
   // Return the newly created comic card element
   return comicCard;
-}
-
-//
-
-// Returns a new link element that displays the comic title and links to its page on Marvel.com
-function comicTitleName(comic) {
-  // Create a new link element with alt text and a target
-  const link = document.createElement("a");
-  link.classList.add("comic-link");
-  link.alt = comic.name + " on Marvel.com";
-  link.target = "_blank";
-
-  // Find the correct URL object for the comic's page on Marvel.com based on its type
-  const urlObject =
-    comic.urls.find((urlObject) => urlObject.type === "wiki") || // try to find a wiki link first
-    comic.urls.find((urlObject) => urlObject.type === "detail") || // then try a detail link
-    comic.urls.find((urlObject) => urlObject.type === "comiclink"); // or a comiclink link as a last resort
-
-  // Set the link's href to the URL of the comic's page on Marvel.com
-  link.href = urlObject.url;
-
-  // Create two div elements to hold the comic title text, with classes for styling
-  const firstLineElement = document.createElement("div");
-  const secondLineElement = document.createElement("div");
-  firstLineElement.classList.add("name-first-line");
-  secondLineElement.classList.add("name-second-line");
-
-  // Split the comic title into two parts, the first line and the second line (if present)
-  const [firstLine, secondLine] = comic.title.split(" (");
-
-  // Append the first line of the title to the first line div element
-  firstLineElement.append(firstLine);
-
-  // If there is a second line of the title (in parentheses), append it to the second line div element
-  if (secondLine) {
-    secondLineElement.append("(" + secondLine);
-  }
-
-  // Append the first and second line div elements to the link element
-  link.append(firstLineElement, secondLineElement);
-
-  // Return the newly created link element with the comic title text and URL
-  return link;
 }
 
 export { renderComics };
