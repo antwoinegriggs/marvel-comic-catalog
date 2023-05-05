@@ -1,11 +1,13 @@
 * {
   box-sizing: border-box;
 }
-
-body {
+#catalog-container {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  flex-wrap: nowrap;
+}
+
+body {
   background: black;
   color: aliceblue;
 }
