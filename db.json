@@ -1,7 +1,7 @@
 {
   "cart": [
     {
-      "title": "Ant-Man (2003) #3",
+      "title": "Ant-Man (2003) #1",
       "price": 2.99,
       "quantity": 1,
       "id": 1
@@ -11,54 +11,6 @@
       "price": 24.99,
       "quantity": 1,
       "id": 2
-    },
-    {
-      "title": "AVENGERS 1 FACSIMILE EDITION (2023) #1",
-      "price": 3.99,
-      "quantity": 1,
-      "id": 3
-    },
-    {
-      "title": "Alien (2023) #1 (Variant)",
-      "price": 4.99,
-      "quantity": 1,
-      "id": 4
-    },
-    {
-      "title": "Alien (2023) #1 (Variant)",
-      "price": 4.99,
-      "quantity": 1,
-      "id": 5
-    },
-    {
-      "title": "A.X.E.: Judgment Day (Trade Paperback)",
-      "price": 34.99,
-      "quantity": 1,
-      "id": 6
-    },
-    {
-      "title": "Avengers West Coast Epic Collection: California Screaming (Trade Paperback)",
-      "price": 49.99,
-      "quantity": 1,
-      "id": 7
-    },
-    {
-      "title": "Avengers by Jonathan Hickman Omnibus Vol. 1 (Hardcover)",
-      "price": 125,
-      "quantity": 1,
-      "id": 8
-    },
-    {
-      "title": "Avengers by Jonathan Hickman Omnibus Vol. 1 (Hardcover)",
-      "price": 125,
-      "quantity": 3,
-      "id": 9
-    },
-    {
-      "title": "Ant-Man (2003) #3",
-      "price": 2.99,
-      "quantity": 1,
-      "id": 10
     }
   ]
 }

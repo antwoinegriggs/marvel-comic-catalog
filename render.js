@@ -14,7 +14,6 @@ function renderComics(comics) {
 
   // Replace the contents of the comicsContainer element with the array of comic card elements
   comicGallery.replaceChildren(...comicCards);
-  // Note: replaceChildren() is our alternative to append() when we want to replace the contents of the parent element, instead of adding new elements
 }
 
 // Creates a new comic card element from a given comic object and returns it
@@ -81,7 +80,7 @@ function toComicCard(comic, index) {
   toCartBtn.classList.add(`to-cart-btn`);
   toCartBtn.textContent = "Add to Cart";
   toCartBtn.setAttribute("data-id", index);
-  comicCartSettings.append(toCartBtn);
+  comicCard.append(toCartBtn);
   toCartBtn.addEventListener("click", (e) => {
     e.preventDefault;
     toCart(comic, comicCounter);

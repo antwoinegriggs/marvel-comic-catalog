@@ -1,27 +1,51 @@
 * {
   box-sizing: border-box;
+  text-align: center;
 }
 #catalog-container {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   flex-wrap: nowrap;
+  justify-content: center;
 }
-
+.cart-gallery {
+  margin: 2rem;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+.cart-card {
+  margin: 3rem;
+}
 body {
-  background: black;
-  color: aliceblue;
 }
 
 .comic-gallery {
+  width: 90%;
   margin: 2rem;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  justify-content: space-evenly;
 }
 
 .comic-card img {
   width: 300px;
   height: 400px;
-  padding: 10px;
-  margin-bottom: 20px;
+}
+
+.comic-card {
+  border: 0.25rem black solid;
+  border-radius: 1rem;
+  margin: 20px;
+}
+
+.comic-cart-settings {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.to-cart-btn {
+  margin: 2rem;
 }
