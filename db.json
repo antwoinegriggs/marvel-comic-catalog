@@ -1,15 +1,9 @@
 {
   "cart": [
     {
-      "title": "Ant-Man (2003) #1",
-      "price": 2.99,
-      "quantity": 1,
-      "id": 1
-    },
-    {
       "title": "ADAM: LEGEND OF THE BLUE MARVEL TPB (Hardcover)",
       "price": 24.99,
-      "quantity": 1,
+      "quantity": 4,
       "id": 2
     }
   ]
