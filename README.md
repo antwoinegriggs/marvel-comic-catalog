@@ -1,4 +1,4 @@
-Marvel Comic Book Catalog Search
+<h1>Marvel Comic Book Catalog Search<h1/>
 
 Description
 This project is a catalog search for Marvel comic books, which allows users to browse and search for comics by title or character. The project was built using JavaScript, HTML, and CSS, and uses the Marvel Comics API (https://developer.marvel.com/) to retrieve data about comic books.
@@ -16,8 +16,8 @@ To install this project, follow these steps:
 4. Obtain a private Marvel API key by creating an account at https://developer.marvel.com/.
 5. Store your Marvel API key in a file named key.js at the root of the project directory, using the following format:
 
-const publicKey = [your public key]
-const privateKey = [your private key]
+const publicKey = [your public key];
+const privateKey = [your private key];
 export { publicKey, privateKey };
 
 6. Run the project by opening the index.html file in your preferred web browser.
