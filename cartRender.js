@@ -44,9 +44,11 @@ function toCartCard(cart) {
   editCart.append(subBtn);
   subBtn.addEventListener("click", (e) => {
     e.preventDefault();
+    window.stop();
     cart.quantity -= 1;
     cartQuantity.textContent = cart.quantity;
     patchRequest(cart);
+    return false;
   });
 
   const cartQuantity = document.createElement("div");
@@ -62,9 +64,11 @@ function toCartCard(cart) {
   addBtn.textContent = "+";
   addBtn.addEventListener("click", (e) => {
     e.preventDefault();
+    window.stop();
     cart.quantity += 1;
     cartQuantity.textContent = cart.quantity;
     patchRequest(cart);
+    return false;
   });
 
   const removeCart = document.createElement("button");
@@ -72,7 +76,10 @@ function toCartCard(cart) {
   removeCart.textContent = "Remove";
   cartCard.append(removeCart);
   removeCart.addEventListener("click", (e) => {
+    e.preventDefault();
+    window.stop();
     cartCard.remove();
+
     deleteRequest(cart);
   });
 

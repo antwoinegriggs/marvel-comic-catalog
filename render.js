@@ -1,62 +1,52 @@
+// Import necessary functions from other modules
 import { toCart } from "./toCartEvent.js";
 import { comicTitleName } from "./titleNameFunc.js";
 
-// Global Variables
+// Get the DOM element that will contain the comic gallery
 const catalogContainer = document.querySelector("#catalog-container");
+
+// Create a new div element to hold the comic gallery and apply a class for styling
 const comicGallery = document.createElement("div");
 comicGallery.classList.add("comic-gallery");
 catalogContainer.append(comicGallery);
 
-// Renders an array of comics as a list of comic cards in the DOM
 function renderComics(comics) {
-  // Map the array of comics to an array of comic card elements
-  const comicCards = comics.map((comic, index) => toComicCard(comic, index));
-
-  // Replace the contents of the comicsContainer element with the array of comic card elements
+  // Renders an array of comics as a list of comic cards in the DOM
+  const comicCards = comics.map((comic, index) =>
+    createComicCard(comic, index)
+  );
   comicGallery.replaceChildren(...comicCards);
 }
 
-// Creates a new comic card element from a given comic object and returns it
-function toComicCard(comic, index) {
-  // Construct the URL for the comic's thumbnail image using its path and extension
+function createComicCard(comic, index) {
+  // Creates a new comic card element from a given comic object and returns it
   const imgURL = `${comic.thumbnail.path}.${comic.thumbnail.extension}`;
-
-  // Create a new image element with the constructed URL
   const comicImg = document.createElement("img");
   comicImg.src = imgURL;
 
-  // Create a new div element to hold the comic card contents and apply a class for styling
   const comicCard = document.createElement("div");
   comicCard.classList.add("comic-card");
-
-  // Append the comic image and title to the comic card div element
   comicCard.append(comicImg);
   comicCard.append(comicTitleName(comic));
 
-  // Append the price to the comic card div element
   const comicPrice = document.createElement("p");
   comicPrice.classList.add("comic-price");
   comicPrice.textContent = `${comic.prices[0].price}`;
   comicCard.append(comicPrice);
 
-  // Create a div element to hold the cart options
   const comicCartSettings = document.createElement("div");
-  comicCartSettings.classList.add(`comic-cart-settings`);
+  comicCartSettings.classList.add("comic-cart-settings");
   comicCard.append(comicCartSettings);
 
-  // Comic Quantity Counter
-  var comicCounter = 0;
+  // Initialize the comic quantity counter to 0
+  let comicCounter = 0;
 
   // Create a subtract button and append it to the cart options div
-  const subBtn = document.createElement("button");
-  subBtn.classList.add("subtract-btn");
-  subBtn.textContent = "-";
-  comicCartSettings.append(subBtn);
-  subBtn.addEventListener("click", (e) => {
-    e.preventDefault();
-    comicCounter -= 1;
-    cartQuantity.textContent = comicCounter;
+  const subBtn = createCartButton("-", () => {
+    comicCounter--;
+    updateCartQuantity(comicCounter);
   });
+  comicCartSettings.append(subBtn);
 
   // Create a paragraph element to display the cart quantity and append it to the cart options div
   const cartQuantity = document.createElement("p");
@@ -65,28 +55,38 @@ function toComicCard(comic, index) {
   cartQuantity.textContent = comicCounter;
 
   // Create an add button and append it to the cart options div
-  const addBtn = document.createElement("button");
-  addBtn.classList.add("add-btn");
-  comicCartSettings.append(addBtn);
-  addBtn.textContent = "+";
-  addBtn.addEventListener("click", (e) => {
-    e.preventDefault();
-    comicCounter += 1;
-    cartQuantity.textContent = comicCounter;
+  const addBtn = createCartButton("+", () => {
+    comicCounter++;
+    updateCartQuantity(comicCounter);
   });
+  comicCartSettings.append(addBtn);
 
   // Create a button to add the comic to the cart and append it to the cart options div
   const toCartBtn = document.createElement("button");
-  toCartBtn.classList.add(`to-cart-btn`);
+  toCartBtn.classList.add("to-cart-btn");
   toCartBtn.textContent = "Add to Cart";
   toCartBtn.setAttribute("data-id", index);
   comicCard.append(toCartBtn);
   toCartBtn.addEventListener("click", (e) => {
-    e.preventDefault;
+    e.preventDefault();
     toCart(comic, comicCounter);
+    return false;
   });
 
-  // Return the newly created comic card element
+  function createCartButton(text, onClick) {
+    //Function that creates button and event for cart settings
+    const btn = document.createElement("button");
+    btn.classList.add("cart-btn");
+    btn.textContent = text;
+    btn.addEventListener("click", onClick);
+    return btn;
+  }
+
+  function updateCartQuantity(quantity) {
+    //Function that updates counter
+    cartQuantity.textContent = quantity;
+  }
+
   return comicCard;
 }
 

@@ -9,6 +9,8 @@ searchMarvelAPI(DEFAULT_SEARCH_TERM);
 document.querySelector("#search-form").addEventListener("submit", (event) => {
   event.preventDefault(); // Prevent the form from doing its default behavior of refreshing the page.
 
-  const searchInputElement = event.target.elements.search;
-  searchMarvelAPI(searchInputElement.value || DEFAULT_SEARCH_TERM);
+  const searchTerm = event.target.elements.search.value || DEFAULT_SEARCH_TERM;
+  searchMarvelAPI(searchTerm);
+
+  return false;
 });
