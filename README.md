@@ -1,4 +1,4 @@
-<h1>Marvel Comic Book Catalog Search</h1>
+<h1>Marvel Comic Book Catalog</h1>
 
 <h2>Description</h2>
 This project is a catalog search for Marvel comic books, which allows users to browse and search for comics by title or character. The project was built using JavaScript, HTML, and CSS, and uses the Marvel Comics API (https://developer.marvel.com/) to retrieve data about comic books.
