@@ -42,12 +42,19 @@ function toCartCard(cart) {
   subBtn.classList.add("sub-cart-btn");
   subBtn.textContent = "-";
   editCart.append(subBtn);
-  subBtn.addEventListener("click", (e) => {
-    e.preventDefault();
-    window.stop();
-    cart.quantity -= 1;
-    cartQuantity.textContent = cart.quantity;
-    patchRequest(cart);
+  subBtn.addEventListener("click", (event) => {
+    if (cart.quantity !== 1) {
+      cart.quantity -= 1;
+      cartQuantity.textContent = cart.quantity;
+
+      patchRequest(cart);
+    } else {
+      console.log("pass");
+      cartCard.remove();
+
+      deleteRequest(cart);
+    }
+    event.preventDefault();
     return false;
   });
 
@@ -63,24 +70,25 @@ function toCartCard(cart) {
   editCart.append(addBtn);
   addBtn.textContent = "+";
   addBtn.addEventListener("click", (e) => {
-    e.preventDefault();
-    window.stop();
     cart.quantity += 1;
     cartQuantity.textContent = cart.quantity;
     patchRequest(cart);
-    return false;
+    e.preventDefault();
+
+    return;
   });
 
   const removeCart = document.createElement("button");
+  removeCart.setAttribute("autofocus", true);
+  removeCart.setAttribute("type", "button");
   removeCart.classList.add("remove-cart-btn");
   removeCart.textContent = "Remove";
   cartCard.append(removeCart);
   removeCart.addEventListener("click", (e) => {
     e.preventDefault();
-    window.stop();
     cartCard.remove();
-
     deleteRequest(cart);
+    return false;
   });
 
   const subtotal = document.createElement("div");
@@ -124,7 +132,7 @@ function deleteRequest(cart) {
   // Make the POST request using fetch()
   fetch(`http://localhost:3000/cart/${cart.id}`, {
     method: "DELETE",
-    //   body: JSON.stringify(cart),
+    body: JSON.stringify(cart),
     headers: {
       "Content-Type": "application/json",
     },

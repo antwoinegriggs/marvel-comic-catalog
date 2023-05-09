@@ -1,10 +1,22 @@
 {
   "cart": [
     {
-      "title": "Hulk (2021) #14 (Variant)",
-      "price": 3.99,
-      "quantity": 1,
-      "id": 1
+      "title": "Ant-Man (2003) #2",
+      "price": 2.99,
+      "quantity": 2,
+      "id": 13
+    },
+    {
+      "title": "Ant-Man (2003) #2",
+      "price": 2.99,
+      "quantity": 2,
+      "id": 14
+    },
+    {
+      "title": "Ant-Man (2003) #2",
+      "price": 2.99,
+      "quantity": 2,
+      "id": 15
     }
   ]
 }

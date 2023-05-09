@@ -6,11 +6,17 @@ const DEFAULT_SEARCH_TERM = "a";
 searchMarvelAPI(DEFAULT_SEARCH_TERM);
 
 // Handle search form submissions...
-document.querySelector("#search-form").addEventListener("submit", (event) => {
-  event.preventDefault(); // Prevent the form from doing its default behavior of refreshing the page.
 
-  const searchTerm = event.target.elements.search.value || DEFAULT_SEARCH_TERM;
-  searchMarvelAPI(searchTerm);
-
-  return false;
+function initSearch() {
+  document.querySelector("#search-form").addEventListener("submit", (event) => {
+    // Prevent the form from doing its default behavior of refreshing the page.
+    event.preventDefault();
+    const searchTerm =
+      event.target.elements.search.value || DEFAULT_SEARCH_TERM;
+    searchMarvelAPI(searchTerm);
+  });
+}
+document.addEventListener("DOMContentLoaded", () => {
+  console.log("pass");
+  initSearch();
 });
