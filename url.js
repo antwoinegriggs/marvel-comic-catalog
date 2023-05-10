@@ -1,4 +1,4 @@
-import { publicKey, privateKey } from "./key.js";
+import { publicKey, privateKey } from "./config.js";
 
 const apiBaseURL = "https://gateway.marvel.com/v1/public";
 
