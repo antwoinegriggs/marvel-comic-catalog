@@ -40,7 +40,6 @@ function createComicCard(comic) {
   addToCart.addEventListener("click", (e) => {
     e.preventDefault();
     toCart(comic, cartQuantity);
-    return false;
   });
 
   comicGallery.append(comicCard);
