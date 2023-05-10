@@ -1,9 +1,6 @@
 import { toCart } from "./toCartEvent.js";
 
-const catalogContainer = document.querySelector("#catalog-container");
-const comicGallery = document.createElement("div");
-comicGallery.classList.add("comic-gallery");
-catalogContainer.append(comicGallery);
+const comicGallery = document.querySelector("#comic-gallery");
 
 function createComicCard(comic) {
   let comicCard = document.createElement("div");
@@ -12,7 +9,7 @@ function createComicCard(comic) {
   comicCard.innerHTML = `
   <img src="${comic.thumbnail.path}.${comic.thumbnail.extension}">
   <div class="content">
-  <h4>${comic.title}</h4>
+  <h2>${comic.title}</h2>
   <p>${comic.prices[0].price}</p>
   </div>
 <div class="cart-settings">

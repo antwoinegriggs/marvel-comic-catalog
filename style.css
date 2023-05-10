@@ -2,27 +2,49 @@
   box-sizing: border-box;
   text-align: center;
 }
+
+body {
+  background-color: azure;
+}
+#banner {
+  background-color: red;
+}
+#search-bar {
+  width: 100%;
+}
+
+.content h2 {
+  text-align: center;
+  margin: auto;
+  width: 80%;
+  height: 5rem;
+  margin-top: 2rem;
+}
 #catalog-container {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
   justify-content: center;
+  align-items: flex-start;
+  /* box-shadow: 1px 2px 3px 4px rgba(20, 20, 20, 0.4); */
 }
-.cart-gallery {
-  margin: 2rem;
+#cart-gallery {
+  margin-top: 2rem;
   display: flex;
   flex-direction: column;
   text-align: center;
-}
-.cart-card {
-  margin: 3rem;
-}
-body {
+  box-shadow: 1px 2px 3px 4px rgba(20, 20, 20, 0.4);
 }
 
-.comic-gallery {
-  width: 90%;
-  margin: 2rem;
+#cart-gallery.scroll {
+  overflow-x: hidden;
+  overflow-y: auto;
+  text-align: center;
+  padding: 20px;
+}
+#comic-gallery {
+  min-width: 60%;
+
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -30,22 +52,70 @@ body {
 }
 
 .comic-card img {
-  width: 300px;
-  height: 400px;
+  width: 400px;
+  height: 500px;
+  box-shadow: 0px 0px 30px 0px rgba(20, 20, 20, 0.4);
 }
 
 .comic-card {
-  border: 0.25rem black solid;
-  border-radius: 1rem;
-  margin: 20px;
+  border-radius: 0.3rem;
+  box-shadow: 1px 2px 3px 4px rgba(20, 20, 20, 0.4);
+  margin: 2rem;
+  width: 400px;
 }
 
-.comic-cart-settings {
+.cart-card {
+  margin: 1rem 5rem;
+}
+.cart-settings {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+  margin: auto;
+  width: 40%;
+  border: white;
+  background-color: blue;
+  border-radius: 1.5rem;
 }
 
-.to-cart-btn {
+.add-to-cart {
   margin: 2rem;
+  border-radius: 1.5rem;
+  height: 2rem;
+  background-color: gold;
+  font-weight: bold;
+  font-size: medium;
+}
+
+.remove-cart {
+  margin: 1rem;
+  border-radius: 1.5rem;
+  height: 2rem;
+  background-color: gold;
+  font-weight: bold;
+  font-size: medium;
+}
+
+.cart-settings button {
+  background-color: blue;
+  margin: auto;
+  border: 0;
+  font-size: xx-large;
+  color: white;
+}
+
+.cart-settings p {
+  margin: auto;
+  color: white;
+  font-size: large;
+  font-weight: bolder;
+}
+
+.cart-card .cart-settings {
+  width: 100%;
+  height: 2rem;
+}
+
+.cart-card .cart-settings button {
+  font-size: x-large;
 }

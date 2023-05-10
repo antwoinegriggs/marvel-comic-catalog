@@ -1,22 +1,16 @@
 {
   "cart": [
     {
-      "title": "Ant-Man (2003) #2",
-      "price": 2.99,
-      "quantity": 2,
-      "id": 13
+      "title": "HULK ANNUAL 1 (2023) #1",
+      "price": 4.99,
+      "quantity": 1,
+      "id": 1
     },
     {
-      "title": "Ant-Man (2003) #2",
-      "price": 2.99,
+      "title": "Avengers: War Across Time (2023) #5",
+      "price": 3.99,
       "quantity": 2,
-      "id": 14
-    },
-    {
-      "title": "Ant-Man (2003) #2",
-      "price": 2.99,
-      "quantity": 2,
-      "id": 15
+      "id": 2
     }
   ]
 }

@@ -8,27 +8,33 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <h1>Marvel Character Search Gallery</h1>
-
+    <div id="banner">
+      <h1>Marvel Comic Search</h1>
+    </div>
     <form id="search-form">
       <input
+        id="search-bar"
         type="text"
         name="search"
         placeholder="Name starts with..."
+        autocomplete="off"
         autofocus
       />
+
       <input type="submit" value="Submit" />
     </form>
 
-    <main id="catalog-container"></main>
+    <div id="catalog-container">
+      <div id="comic-gallery"></div>
+      <div id="cart-gallery"></div>
+    </div>
 
     <script src="./libraries/md5.js"></script>
-    <script type="module" src="./main.js"></script>
-    <script type="module" src="searchEvent.js"></script>
-    <script type="module" src="render.js"></script>
-    <script type="module" src="addCartEvent.js"></script>
-    <script type="module" src="titleNameFunc.js"></script>
     <script type="module" src="url.js"></script>
+    <script type="module" src="searchEvent.js"></script>
+    <script type="module" src="./main.js"></script>
+    <script type="module" src="render.js"></script>
+
     <script type="module" src="cartFetch.js"></script>
     <script type="module" src="cartRender.js"></script>
   </body>
