@@ -1,5 +1,4 @@
 import { publicKey, privateKey } from "./config.js";
-
 const apiBaseURL = "https://gateway.marvel.com/v1/public";
 
 // Creates a URL for searching Marvel API for comics with titles starting with a given search term
