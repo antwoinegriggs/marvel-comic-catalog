@@ -1,16 +1,46 @@
 * {
   box-sizing: border-box;
   text-align: center;
+  margin: 0;
 }
 
 body {
   background-color: azure;
+  margin: auto;
 }
 #banner {
+  margin: auto;
   background-color: red;
+  width: 100%;
+  height: 10rem;
+  box-shadow: 1px 2px 3px 4px rgba(20, 20, 20, 0.4);
+  margin-bottom: 0.25rem;
+}
+.banner-title {
+  text-align: center;
+  padding: 4rem;
+  color: aliceblue;
+}
+
+#search-from {
+  margin: auto;
+  display: flex;
+  flex: column;
+  justify-content: space-between;
 }
 #search-bar {
-  width: 100%;
+  width: 60%;
+  background-color: aqua;
+  height: 2.5rem;
+  box-shadow: 1px 2px 3px 4px rgba(20, 20, 20, 0.4);
+  font-size: x-large;
+  font-weight: bolder;
+}
+#search-submit {
+  height: 2.5rem;
+  width: 20%;
+  box-shadow: 1px 2px 3px 4px rgba(20, 20, 20, 0.4);
+  font-size: x-large;
 }
 
 .content h2 {
@@ -21,6 +51,8 @@ body {
   margin-top: 2rem;
 }
 #catalog-container {
+  margin: auto;
+  margin-top: 4rem;
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
@@ -29,6 +61,7 @@ body {
   /* box-shadow: 1px 2px 3px 4px rgba(20, 20, 20, 0.4); */
 }
 #cart-gallery {
+  margin: auto;
   margin-top: 2rem;
   display: flex;
   flex-direction: column;
@@ -37,14 +70,15 @@ body {
 }
 
 #cart-gallery.scroll {
+  margin: auto;
   overflow-x: hidden;
   overflow-y: auto;
   text-align: center;
   padding: 20px;
 }
 #comic-gallery {
+  margin: auto;
   min-width: 60%;
-
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
