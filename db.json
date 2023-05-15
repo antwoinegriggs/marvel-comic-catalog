@@ -1,3 +1,10 @@
 {
-  "cart": []
+  "cart": [
+    {
+      "title": "Hulk (2021) #14 (Variant)",
+      "price": 3.99,
+      "quantity": 2,
+      "id": 8
+    }
+  ]
 }
