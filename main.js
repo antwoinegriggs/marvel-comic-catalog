@@ -29,6 +29,10 @@ export function searchMarvelAPI(search) {
       console.log(comicsWithPrices);
 
       // Render filtered comics using the renderComics function
-      renderComics(comicsWithPrices);
+      if (comicsWithPrices.length > 0) {
+        renderComics(comicsWithPrices);
+      } else {
+        window.alert("Comic Does Not Exist");
+      }
     });
 }
