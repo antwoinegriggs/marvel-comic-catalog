@@ -39,3 +39,5 @@ export { publicKey, privateKey };<br>
 3. Under "My Developer Account", click on "Create a New App".
 4. Fill out the required information and click "Create".
 5. Your public and private keys will be displayed on the next screen.
+
+Take a look at this blog for helpful guidance: https://medium.com/p/b257ade4deb6
